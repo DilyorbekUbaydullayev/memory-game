@@ -1,5 +1,6 @@
 "use client";
 import { Card } from "@/types/card.type";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 export default function MemoryGame() {
   const [cards, setCards] = useState<Card[]>([]);
@@ -121,7 +122,7 @@ export default function MemoryGame() {
     initializeGame();
   };
 
-  const matchedPairsCount = cards.filter((card) => card.isMatched).length / 2;
+
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
@@ -155,10 +156,12 @@ export default function MemoryGame() {
               </div>
 
               <div className="absolute w-full h-full bg-white rounded-lg flex items-center justify-center rotate-y-180 backface-hidden border-2 border-blue-300 shadow-md overflow-hidden">
-                <img
+                <Image
                   src={card.imageUrl}
                   alt={`Card ${card.id}`}
                   className="w-full h-full object-cover"
+                  width={200}
+                  height={200}
                 />
               </div>
             </div>
